@@ -135,6 +135,7 @@ a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--
 .artikel table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--beton-licht);font-size:15px}
 .artikel th{background:var(--staal);color:var(--beton-licht);text-align:left;padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:500}
 .artikel td{padding:12px 16px;border-bottom:1px solid var(--lijn)}
+.artikel code{font-family:'IBM Plex Mono',monospace;font-size:.92em;background:#fff;border:1px solid var(--lijn);border-radius:var(--radius);padding:1px 6px}
 .kort-antwoord{background:var(--beton-licht);border-left:4px solid var(--geel);padding:20px 24px;margin:0 0 32px}
 .kort-antwoord .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--geel-donker);display:block;margin-bottom:6px}
 .kort-antwoord p{margin:0;font-size:16.5px}
