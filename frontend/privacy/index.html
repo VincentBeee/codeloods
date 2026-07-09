@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookietoestemming + Google Analytics (laadt pas na toestemming) -->
-<script src="/assets/js/consent.js"></script>
 <title>Privacy &amp; cookies — Codeloods</title>
 <meta name="description" content="Welke gegevens Codeloods verwerkt, waarom, hoe lang en met wie ze gedeeld worden. Zonder toestemming plaatst deze site geen enkele cookie.">
 <link rel="canonical" href="https://codeloods.nl/privacy/">
@@ -15,8 +13,11 @@
 <meta property="og:locale" content="nl_NL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/loods.css">
+<!-- Cookietoestemming + Google Analytics (laadt pas na toestemming). Met defer,
+     want synchroon in de <head> stelde dit het ontdekken van de CSS uit. -->
+<script src="/assets/js/consent.js" defer></script>
 </head>
 <body>
 <div class="tape" aria-hidden="true"></div>

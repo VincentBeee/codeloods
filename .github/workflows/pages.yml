@@ -3,6 +3,8 @@ name: Deploy frontend naar GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,7 +17,17 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Draait ook op pull requests, zodat een kapotte canonical of een pagina die
+  # niet in de sitemap staat opvalt vóór de merge in plaats van erna.
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/seo-check.sh
+
   deploy:
+    needs: controle
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -28,3 +40,12 @@ jobs:
           path: frontend
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # De bot-check hoort ná de deploy: hij bewijst dat de crawler op de echte URL
+  # gerenderde HTML krijgt, niet dat het bestand in de repo goed staat.
+  botcheck:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/botcheck.sh https://codeloods.nl

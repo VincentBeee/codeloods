@@ -12,6 +12,34 @@ werkt daarom alleen vanaf de domein-root, niet vanaf `<user>.github.io/codeloods
 Elke push naar `main` draait `.github/workflows/pages.yml`, die `frontend/`
 publiceert. Pages-source staat op "GitHub Actions" (niet deploy-from-branch).
 
+De workflow draait drie jobs achter elkaar: `controle` (statische SEO-check, ook
+op pull requests), `deploy`, en `botcheck` (curl-check op de live URL's).
+
+## Technische SEO
+
+    ./scripts/seo-check.sh    # statisch, offline: canonicals, H1's, sitemap-dekking
+    ./scripts/botcheck.sh     # live: haalt elke sitemap-URL op als bingbot
+
+`seo-check.sh` gaat ervan uit dat **elke `index.html` een rankbare pagina is** en
+eist per pagina precies één H1, een kopstructuur zonder overgeslagen niveaus, één
+absolute canonical die naar de pagina zelf wijst, en een regel in `sitemap.xml`.
+Elk ander `.html`-bestand moet `noindex` hebben en juist níét in de sitemap staan
+(nu alleen `404.html`). Een nieuwe pagina die je vergeet in de sitemap te zetten
+laat de build dus falen.
+
+`botcheck.sh` is de check uit de checklist: levert de pagina een `<h1>` en de
+juiste canonical aan een crawler, zónder JavaScript. Op deze statische site kan
+dat nauwelijks stuk — de check staat er voor de dag dat een pagina wél door een
+framework wordt gerenderd.
+
+### Fonts en CLS
+
+De `@font-face`-blokken bovenin `frontend/assets/css/loods.css` zijn metrisch
+gelijkgemaakte fallbacks. Zonder die blokken springt de H1 zichtbaar zodra de
+webfonts binnenkomen: Arial is in kapitalen ~51% breder dan Big Shoulders Display.
+Wissel je van font of gewicht, draai dan `python3 scripts/fontmetrics.py` en neem
+de nieuwe percentages over. Zelf getallen verzinnen maakt het erger, niet beter.
+
 ## Git
 Commit messages **zonder** `Co-Authored-By`-trailer.
 
