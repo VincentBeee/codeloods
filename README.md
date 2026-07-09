@@ -7,12 +7,15 @@ Statische site (GitHub Pages) + optionele FastAPI-backend (Railway) voor de offe
     backend/    → Railway (offerte-mails via Resend)
 
 ## Frontend live zetten (GitHub Pages)
-1. Nieuwe repo, push de inhoud van `frontend/` naar de root (of gebruik /docs).
-2. Settings → Pages → deploy from branch.
-3. DNS bij je registrar: A-records naar GitHub Pages IP's
+Deploy loopt via `.github/workflows/pages.yml`: elke push naar `main` publiceert
+de map `frontend/` naar Pages. `backend/` blijft buiten de artifact.
+
+1. Settings → Pages → Source: **GitHub Actions** (niet "deploy from branch";
+   dat kan alleen root of /docs, en de site staat in `frontend/`).
+2. DNS bij je registrar: A-records naar GitHub Pages IP's
    (185.199.108.153 / .109 / .110 / .111) + CNAME `www` → `<user>.github.io`.
    Het CNAME-bestand (codeloods.nl) zit er al in.
-4. Enforce HTTPS aanvinken zodra het certificaat er is.
+3. Enforce HTTPS aanvinken zodra het certificaat er is.
 
 ## Backend (optioneel maar aangeraden)
 Zie backend/README.md. Zonder backend werkt de wizard ook: fallback is een
