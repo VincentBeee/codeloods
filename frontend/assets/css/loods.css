@@ -1,0 +1,200 @@
+:root{
+  --beton:#E9E6DD;--beton-licht:#F4F2EB;--staal:#1C2B36;--staal-diep:#131E27;
+  --staal-mid:#47596A;--staal-licht:#8A99A8;--geel:#FFC61A;--geel-donker:#8A6800;
+  --lijn:#C9C4B6;--radius:2px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--beton);color:var(--staal);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--geel);color:var(--staal)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.smal{max-width:760px}
+img{max-width:100%;height:auto}
+
+.tape{height:10px;background:repeating-linear-gradient(-45deg,var(--geel) 0 14px,var(--staal) 14px 28px)}
+
+nav{position:sticky;top:0;z-index:50;background:var(--beton);border-bottom:1px solid var(--lijn)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto}
+.wordmark{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:26px;letter-spacing:.04em;text-transform:uppercase;color:var(--staal);text-decoration:none;display:flex;align-items:center;gap:10px}
+.wordmark .blok{background:var(--staal);color:var(--geel);padding:1px 8px 3px;line-height:1}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--staal-mid);text-decoration:none;font-size:15px;font-weight:500}
+.nav-links a:hover{color:var(--staal)}
+
+.btn{display:inline-block;background:var(--staal);color:var(--beton-licht);font-weight:600;font-size:15px;padding:11px 22px;border-radius:var(--radius);text-decoration:none;border:1px solid var(--staal);cursor:pointer;font-family:'Archivo',sans-serif;transition:background .15s,color .15s}
+.btn:hover{background:var(--geel);color:var(--staal);border-color:var(--staal)}
+.btn-geel{background:var(--geel);color:var(--staal);border-color:var(--staal)}
+.btn-geel:hover{background:var(--staal);color:var(--geel)}
+.btn-ghost{background:transparent;color:var(--beton-licht);border-color:#47596A}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+.hero{position:relative;overflow:hidden;background:var(--staal);color:var(--beton-licht)}
+.roldeur{position:absolute;inset:0;z-index:10;background:repeating-linear-gradient(to bottom,#2A3B49 0 34px,#22323F 34px 38px,#17242E 38px 42px);animation:deur-open 1.1s cubic-bezier(.65,0,.35,1) .35s forwards;will-change:transform}
+.roldeur::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--geel);box-shadow:0 4px 0 var(--staal-diep)}
+@keyframes deur-open{to{transform:translateY(-101%)}}
+@media (prefers-reduced-motion:reduce){.roldeur{animation:none;transform:translateY(-101%)}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.hero-inner{padding:96px 24px 88px;max-width:1120px;margin:0 auto}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--geel);letter-spacing:.06em;text-transform:uppercase}
+.status .lampje{width:9px;height:9px;border-radius:50%;background:#4ADE80;animation:puls 2.2s ease-in-out infinite}
+@keyframes puls{50%{opacity:.35}}
+h1{font-family:'Big Shoulders Display',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(48px,9vw,116px);line-height:.92;letter-spacing:.005em;margin:18px 0 26px}
+h1 .accent{color:var(--geel)}
+h1 .outline{color:transparent;-webkit-text-stroke:2px var(--beton-licht)}
+.hero-sub{max-width:520px;font-size:19px;color:#B9C4CE;line-height:1.6}
+.hero-acties{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap;margin-top:34px;border-top:1px solid #33454F;padding-top:22px}
+.hero-meta div{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--staal-licht)}
+.hero-meta strong{display:block;color:var(--beton-licht);font-size:15px;font-weight:500;margin-bottom:2px}
+
+section{padding:88px 0}
+.kop{display:flex;align-items:baseline;gap:18px;margin-bottom:48px;flex-wrap:wrap}
+.kop-label{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--geel-donker);border:1px solid var(--geel-donker);padding:4px 10px;border-radius:var(--radius);white-space:nowrap}
+h2{font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:.01em}
+.sectie-intro{max-width:560px;color:var(--staal-mid);margin:-30px 0 48px}
+
+.bonnen{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bon{background:var(--beton-licht);border:1px solid var(--lijn);border-radius:var(--radius);display:flex;flex-direction:column;transition:transform .15s,border-color .15s;position:relative}
+.bon:hover{transform:translateY(-4px);border-color:var(--staal)}
+.bon-kop{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed var(--lijn);padding:14px 20px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--staal-mid);letter-spacing:.05em}
+.bon-body{padding:22px 20px 24px;flex:1;display:flex;flex-direction:column}
+.bon h3{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:.01em;margin-bottom:10px}
+.bon p{font-size:15.5px;color:var(--staal-mid)}
+.bon ul{list-style:none;margin:16px 0 20px;flex:1}
+.bon li{font-size:14.5px;color:var(--staal-mid);padding:5px 0 5px 20px;position:relative}
+.bon li::before{content:"";position:absolute;left:0;top:12px;width:10px;height:2px;background:var(--geel)}
+.bon-prijs{border-top:1px dashed var(--lijn);padding-top:16px;display:flex;justify-content:space-between;align-items:baseline}
+.bon-prijs .bedrag{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:26px}
+.bon-prijs .per{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--staal-licht)}
+.bon.uitgelicht{border:2px solid var(--staal);background:var(--staal);color:var(--beton-licht)}
+.bon.uitgelicht .bon-kop{color:var(--staal-licht);border-color:#33454F}
+.bon.uitgelicht p,.bon.uitgelicht li{color:#B9C4CE}
+.bon.uitgelicht .bon-prijs{border-color:#33454F}
+.stempel{position:absolute;top:-13px;right:16px;background:var(--geel);color:var(--staal);font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:var(--radius);transform:rotate(-2deg)}
+
+.eigen{background:var(--staal);color:var(--beton-licht)}
+.eigen .kop-label{color:var(--geel);border-color:var(--geel)}
+.eigen .sectie-intro{color:var(--staal-licht)}
+.producten{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#33454F;border:1px solid #33454F}
+.product{background:var(--staal);padding:26px 26px 24px;transition:background .15s}
+.product:hover{background:#22323F}
+.product .naam{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.product .naam::before{content:"";width:12px;height:12px;background:var(--geel);flex:none}
+.product p{font-size:14.5px;color:var(--staal-licht);margin-top:8px}
+.product .tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--geel);margin-top:14px;display:block;letter-spacing:.05em}
+
+.lijn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.lijn-grid::before{content:"";position:absolute;top:26px;left:6%;right:6%;height:2px;background:repeating-linear-gradient(to right,var(--staal) 0 10px,transparent 10px 18px)}
+.stap{padding:0 18px;position:relative}
+.stap .nr{width:52px;height:52px;border-radius:50%;background:var(--geel);border:2px solid var(--staal);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:22px;margin-bottom:18px;position:relative;z-index:1}
+.stap h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.stap p{font-size:14.5px;color:var(--staal-mid)}
+
+.eerlijk{border:1px solid var(--staal);border-radius:var(--radius);background:var(--beton-licht);padding:36px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.eerlijk .icoon{width:56px;height:56px;background:var(--geel);border:2px solid var(--staal);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:30px}
+.eerlijk h3{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:30px;text-transform:uppercase;margin-bottom:8px}
+.eerlijk p{color:var(--staal-mid);max-width:620px}
+
+.faq details{border:1px solid var(--lijn);border-radius:var(--radius);background:var(--beton-licht);margin-bottom:12px}
+.faq summary{cursor:pointer;padding:18px 22px;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:700;color:var(--geel-donker);flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq .antwoord{padding:0 22px 20px;color:var(--staal-mid);font-size:15.5px}
+
+.cta{background:var(--geel);position:relative;overflow:hidden}
+.cta::before{content:"CODELOODS CODELOODS CODELOODS CODELOODS";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:170px;line-height:1;white-space:nowrap;color:rgba(28,43,54,.06);pointer-events:none;text-transform:uppercase}
+.cta-inner{position:relative;text-align:center;max-width:640px;margin:0 auto;padding:0 24px}
+.cta h2{margin-bottom:14px}
+.cta p{color:#6B5500;margin-bottom:28px;font-size:18px}
+.cta .mono-note{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--geel-donker);margin-top:18px;display:block}
+
+footer{background:var(--staal-diep);color:var(--staal-licht);padding:40px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:1120px;margin:0 auto;padding:0 24px;font-size:14px}
+.footer-inner .mono{font-size:12.5px}
+footer a{color:var(--beton-licht);text-decoration:none}
+footer a:hover{color:var(--geel)}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.zichtbaar{opacity:1;transform:none}
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--geel);outline-offset:2px}
+
+/* artikelen */
+.artikel-hero{background:var(--staal);color:var(--beton-licht);padding:72px 0 56px}
+.artikel-hero .kruimel{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--staal-licht);margin-bottom:20px}
+.artikel-hero .kruimel a{color:var(--geel);text-decoration:none}
+.artikel-hero h1{font-size:clamp(36px,6vw,64px);margin:0 0 16px}
+.artikel-hero .meta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--staal-licht)}
+.artikel{padding:64px 0}
+.artikel h2{font-size:clamp(26px,3.5vw,36px);margin:44px 0 16px}
+.artikel h3{font-size:20px;font-weight:600;margin:32px 0 10px}
+.artikel p{margin-bottom:18px;color:#2B3B47}
+.artikel ul,.artikel ol{margin:0 0 18px 22px;color:#2B3B47}
+.artikel li{margin-bottom:8px}
+.artikel table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--beton-licht);font-size:15px}
+.artikel th{background:var(--staal);color:var(--beton-licht);text-align:left;padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:500}
+.artikel td{padding:12px 16px;border-bottom:1px solid var(--lijn)}
+.kort-antwoord{background:var(--beton-licht);border-left:4px solid var(--geel);padding:20px 24px;margin:0 0 32px}
+.kort-antwoord .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--geel-donker);display:block;margin-bottom:6px}
+.kort-antwoord p{margin:0;font-size:16.5px}
+.artikel-cta{background:var(--staal);color:var(--beton-licht);padding:28px 32px;border-radius:var(--radius);margin:44px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.artikel-cta p{margin:0;color:#B9C4CE;font-size:15.5px}
+.artikel-cta strong{color:var(--beton-licht);display:block;font-size:17px}
+
+/* blog index */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.blog-kaart{background:var(--beton-licht);border:1px solid var(--lijn);border-radius:var(--radius);text-decoration:none;color:var(--staal);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.blog-kaart:hover{transform:translateY(-4px);border-color:var(--staal)}
+.blog-kaart .balk{height:8px;background:var(--geel)}
+.blog-kaart .inhoud{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
+.blog-kaart .rubriek{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--geel-donker);margin-bottom:10px}
+.blog-kaart h3{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;line-height:1.05;margin-bottom:10px}
+.blog-kaart p{font-size:14.5px;color:var(--staal-mid);flex:1}
+.blog-kaart .lees{font-family:'IBM Plex Mono',monospace;font-size:13px;margin-top:16px;color:var(--staal)}
+
+/* offerte wizard */
+.wizard{max-width:720px;margin:0 auto;background:var(--beton-licht);border:1px solid var(--lijn);border-radius:var(--radius)}
+.wizard-kop{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px dashed var(--lijn);font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--staal-mid)}
+.voortgang{height:6px;background:var(--beton);position:relative}
+.voortgang .balk{height:100%;background:var(--geel);transition:width .3s ease}
+.wizard-body{padding:32px 28px}
+.wizard h2{font-size:clamp(26px,4vw,34px);margin-bottom:8px}
+.wizard .vraag-sub{color:var(--staal-mid);font-size:15.5px;margin-bottom:26px}
+.opties{display:grid;gap:12px}
+.optie{display:flex;align-items:flex-start;gap:14px;border:1px solid var(--lijn);border-radius:var(--radius);padding:16px 18px;cursor:pointer;background:#fff;transition:border-color .15s}
+.optie:hover{border-color:var(--staal)}
+.optie input{margin-top:4px;accent-color:var(--staal);width:18px;height:18px;flex:none}
+.optie .titel{font-weight:600;font-size:16px}
+.optie .uitleg{font-size:14px;color:var(--staal-mid)}
+.optie.gekozen{border:2px solid var(--staal);background:var(--beton-licht)}
+.wizard-voet{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-top:1px dashed var(--lijn)}
+.schatting{background:var(--staal);color:var(--beton-licht);padding:26px 28px;border-radius:var(--radius);margin-bottom:26px}
+.schatting .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--geel)}
+.schatting .bedrag{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:clamp(36px,6vw,52px);line-height:1.1;margin:6px 0 4px}
+.schatting .toelichting{font-size:14px;color:var(--staal-licht)}
+.veld{margin-bottom:18px}
+.veld label{display:block;font-weight:600;font-size:14.5px;margin-bottom:6px}
+.veld input{width:100%;padding:12px 14px;border:1px solid var(--lijn);border-radius:var(--radius);font-family:'Archivo',sans-serif;font-size:16px;background:#fff}
+.veld input:focus{outline:2px solid var(--geel);border-color:var(--staal)}
+.hp{position:absolute;left:-9999px;opacity:0}
+.melding{padding:14px 18px;border-radius:var(--radius);font-size:15px;margin-top:16px;display:none}
+.melding.ok{display:block;background:#E4F3E4;border:1px solid #3E7C3E;color:#2A5A2A}
+.melding.fout{display:block;background:#F8E6E6;border:1px solid #A33;color:#822}
+
+@media (max-width:900px){
+  .bonnen,.blog-grid{grid-template-columns:1fr}
+  .lijn-grid{grid-template-columns:1fr 1fr;gap:32px 0}
+  .lijn-grid::before{display:none}
+  .producten{grid-template-columns:1fr}
+  .cta::before{font-size:90px}
+}
+@media (max-width:600px){
+  .nav-links a:not(.btn){display:none}
+  .hero-inner{padding:64px 24px 60px}
+  section{padding:64px 0}
+  .lijn-grid{grid-template-columns:1fr}
+  .eerlijk{grid-template-columns:1fr;padding:26px}
+  .hero-meta{gap:20px}
+  .wizard-body{padding:26px 20px}
+}

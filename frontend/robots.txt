@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# AI-crawlers expliciet welkom (AEO)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://codeloods.nl/sitemap.xml

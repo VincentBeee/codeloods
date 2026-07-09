@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prijsindicatie in 2 minuten — Codeloods</title>
+<meta name="description" content="Beantwoord 4 korte vragen en ontvang direct een eerlijke prijsindicatie voor je website, webshop of software in je inbox. Vrijblijvend, vaste prijzen, geen verkooppraatje.">
+<link rel="canonical" href="https://codeloods.nl/offerte/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prijsindicatie in 2 minuten — Codeloods">
+<meta property="og:description" content="4 vragen, direct een eerlijke prijsindicatie in je inbox. Vrijblijvend.">
+<meta property="og:url" content="https://codeloods.nl/offerte/">
+<meta property="og:locale" content="nl_NL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/loods.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Prijsindicatie aanvragen",
+  "url": "https://codeloods.nl/offerte/",
+  "description": "Online prijsindicatie voor websites, webshops en software. Beantwoord 4 vragen en ontvang direct een eerlijke schatting in je inbox.",
+  "isPartOf": {"@id": "https://codeloods.nl/#website"},
+  "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://codeloods.nl/"},
+    {"@type": "ListItem", "position": 2, "name": "Prijsindicatie", "item": "https://codeloods.nl/offerte/"}
+  ]}
+}
+</script>
+</head>
+<body>
+
+<nav aria-label="Hoofdnavigatie">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">Code<span class="blok">loods</span></a>
+    <div class="nav-links">
+      <a href="/#diensten">Diensten</a>
+      <a href="/blog/">Blog</a>
+      <a href="mailto:hallo@codeloods.nl" class="btn">Direct mailen</a>
+    </div>
+  </div>
+</nav>
+
+<div class="tape" aria-hidden="true"></div>
+
+<section style="padding:56px 0 80px">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 40px">
+      <span class="kop-label" style="display:inline-block">Werkbon aanvragen</span>
+      <h1 style="font-size:clamp(38px,6vw,64px);margin:16px 0 12px">Wat gaat het<br><span style="color:var(--geel-donker)">ongeveer kosten?</span></h1>
+      <p style="color:var(--staal-mid)">Vier korte vragen, direct een eerlijke indicatie in je inbox. Geen verplichtingen, geen verkooppraatje — daarna bepaal jij of we kennismaken.</p>
+    </div>
+
+    <div class="wizard" id="wizard">
+      <div class="wizard-kop">
+        <span id="stap-label">STAP 1 / 5</span>
+        <span>CODELOODS · PRIJSINDICATIE</span>
+      </div>
+      <div class="voortgang"><div class="balk" id="balk" style="width:20%"></div></div>
+
+      <form id="offerte-form" novalidate>
+      <div class="wizard-body">
+
+        <div class="stap-paneel" data-stap="1">
+          <h2>Wat wil je laten maken?</h2>
+          <p class="vraag-sub">Kies wat het dichtst in de buurt komt.</p>
+          <div class="opties" role="radiogroup" aria-label="Type project">
+            <label class="optie"><input type="radio" name="type" value="website" required>
+              <span><span class="titel">Website</span><br><span class="uitleg">Zakelijke site, portfolio of landingspagina's</span></span></label>
+            <label class="optie"><input type="radio" name="type" value="webshop">
+              <span><span class="titel">Webshop</span><br><span class="uitleg">Producten online verkopen, inclusief betalingen</span></span></label>
+            <label class="optie"><input type="radio" name="type" value="software">
+              <span><span class="titel">Software of app</span><br><span class="uitleg">Maatwerk tool, portaal of SaaS-product</span></span></label>
+            <label class="optie"><input type="radio" name="type" value="seo">
+              <span><span class="titel">Alleen vindbaarheid (SEO/AEO)</span><br><span class="uitleg">Mijn site bestaat al, maar niemand vindt hem</span></span></label>
+          </div>
+        </div>
+
+        <div class="stap-paneel" data-stap="2" hidden>
+          <h2 id="omvang-titel">Hoe groot wordt het?</h2>
+          <p class="vraag-sub" id="omvang-sub">Een grove inschatting is prima.</p>
+          <div class="opties" id="omvang-opties" role="radiogroup" aria-label="Omvang"></div>
+        </div>
+
+        <div class="stap-paneel" data-stap="3" hidden>
+          <h2>Wat moet er verder bij?</h2>
+          <p class="vraag-sub">Vink aan wat van toepassing is — mag ook niets zijn.</p>
+          <div class="opties" id="extra-opties"></div>
+        </div>
+
+        <div class="stap-paneel" data-stap="4" hidden>
+          <h2>Doorbouwen na livegang?</h2>
+          <p class="vraag-sub">Live gaan is het begin. Wil je dat we blijven bouwen aan vindbaarheid?</p>
+          <div class="opties" role="radiogroup" aria-label="Groei-abonnement">
+            <label class="optie"><input type="radio" name="groei" value="ja" required>
+              <span><span class="titel">Ja, Groei-abonnement</span><br><span class="uitleg">Maandelijkse content en SEO-verbetering — €295/mnd, maandelijks opzegbaar</span></span></label>
+            <label class="optie"><input type="radio" name="groei" value="misschien">
+              <span><span class="titel">Vertel er meer over in het gesprek</span><br><span class="uitleg">Eerst de basis, dan zien we verder</span></span></label>
+            <label class="optie"><input type="radio" name="groei" value="nee">
+              <span><span class="titel">Nee, alleen de bouw</span><br><span class="uitleg">Ik regel vindbaarheid en onderhoud zelf</span></span></label>
+          </div>
+        </div>
+
+        <div class="stap-paneel" data-stap="5" hidden>
+          <div class="schatting">
+            <span class="label">Jouw indicatie</span>
+            <div class="bedrag" id="schatting-bedrag">€ —</div>
+            <span class="toelichting" id="schatting-toelichting">Vaste prijs, exclusief btw. Definitief na een kort gesprek — zonder verrassingen.</span>
+          </div>
+          <h2 style="font-size:26px">Waar mogen we hem heen sturen?</h2>
+          <p class="vraag-sub">Je ontvangt de indicatie met specificatie direct per mail. We nemen daarna éénmalig contact op voor een vrijblijvend kennismakingsgesprek.</p>
+          <div class="veld"><label for="naam">Naam</label><input type="text" id="naam" name="naam" autocomplete="name" required></div>
+          <div class="veld"><label for="email">E-mailadres</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+          <div class="veld"><label for="bedrijf">Bedrijfsnaam (optioneel)</label><input type="text" id="bedrijf" name="bedrijf" autocomplete="organization"></div>
+          <div class="hp" aria-hidden="true"><label>Laat dit veld leeg<input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+          <div class="melding" id="melding" role="status"></div>
+        </div>
+
+      </div>
+      <div class="wizard-voet">
+        <button type="button" class="btn" id="terug" style="visibility:hidden">← Terug</button>
+        <button type="button" class="btn btn-geel" id="verder">Volgende →</button>
+      </div>
+      </form>
+    </div>
+
+    <p class="mono" style="text-align:center;font-size:13px;color:var(--staal-mid);margin-top:22px">Liever direct praten? Mail <a href="mailto:hallo@codeloods.nl" style="color:var(--geel-donker)">hallo@codeloods.nl</a> — reactie binnen één werkdag.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="mono">CODELOODS · KVK 00000000 · NEDERLAND</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="mailto:hallo@codeloods.nl">hallo@codeloods.nl</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/offerte.js"></script>
+</body>
+</html>

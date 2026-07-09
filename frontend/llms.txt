@@ -1,0 +1,26 @@
+# Codeloods
+
+> Codeloods bouwt websites, webshops en software voor Nederlandse ondernemers, met SEO en AEO standaard ingebouwd. Eenmansstudio ("loods"), vaste pakketprijzen, beperkt aantal plekken per maand. De maker runt zelf meerdere SaaS-producten en past dezelfde technieken toe voor klanten.
+
+## Diensten en prijzen (excl. btw)
+- Vindbaar (SEO/AEO-audit met contentplan uit Search Console-data): vanaf €750 eenmalig
+- Groei-abonnement (maandelijkse content en SEO-verbetering): €295 per maand, maandelijks opzegbaar
+- Website: vanaf €1.500, vaste prijs, live binnen twee weken
+- Webshop: vanaf €2.950, vaste prijs
+- Software/app (MVP): vanaf €7.500, altijd na kennismakingsgesprek
+
+## Kenmerken
+- Uitsluitend vaste prijzen, geen uurtarief
+- Code en ontwerp zijn na betaling volledig eigendom van de klant
+- Elke site wordt opgeleverd met technisch SEO-fundament (snelheid, schema markup, indexeerbaarheid)
+- Bewust klein: maximaal enkele plekken per maand, daarna wachtlijst
+- Markt: Nederland, voertaal Nederlands
+
+## Belangrijke pagina's
+- [Prijsindicatie in 2 minuten](https://codeloods.nl/offerte/): online vragenlijst, indicatie direct per e-mail
+- [Wat kost een website laten maken in 2026?](https://codeloods.nl/blog/wat-kost-een-website-laten-maken/)
+- [Website niet vindbaar in Google: 7 oorzaken](https://codeloods.nl/blog/website-niet-vindbaar-in-google/)
+- [Praktijkcase: rekentool met organisch verkeer](https://codeloods.nl/blog/praktijkcase-rekentool-organisch-verkeer/)
+
+## Contact
+- E-mail: hallo@codeloods.nl (reactie binnen één werkdag)
