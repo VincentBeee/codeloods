@@ -3,6 +3,35 @@
   --staal-mid:#47596A;--staal-licht:#8A99A8;--geel:#FFC61A;--geel-donker:#8A6800;
   --lijn:#C9C4B6;--radius:2px;
 }
+/* Fonts staan op onze eigen origin, niet bij Google. Dat scheelt een render-
+   blocking verzoek naar een derde partij op het kritieke pad, en het lekt geen
+   bezoekers-IP naar Google vóórdat er toestemming is gegeven — wat consent.js
+   voor Analytics juist zorgvuldig vermijdt. Zie frontend/assets/fonts/LICENSE.txt.
+
+   Big Shoulders Display en Archivo zijn variabele fonts: één bestand bedient het
+   hele wght-bereik. Alleen het latin-subset staat in de repo; de pijltjes (→, ←)
+   vielen daar altijd al buiten en komen dus, net als voorheen, uit een systeemfont. */
+@font-face{
+  font-family:'Big Shoulders Display';
+  src:url('/assets/fonts/big-shoulders-display-latin.woff2') format('woff2');
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Archivo';
+  src:url('/assets/fonts/archivo-latin.woff2') format('woff2');
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('/assets/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('/assets/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap;
+}
+
 /* Fallbacks met dezelfde metriek als de webfonts. Zonder deze blokken verspringt
    de layout zodra de webfonts binnenkomen: Arial is in kapitalen ~51% breder dan
    Big Shoulders Display, en de H1 loopt op tot 116px. De percentages zijn

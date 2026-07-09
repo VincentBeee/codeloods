@@ -24,12 +24,58 @@ sitemap_urls=$(locs)
 
 canonicals=""
 
+# Een redirect-stub herken je aan de meta-refresh. Zie scripts/redirect.sh.
+is_stub() { grep -q '<meta http-equiv="refresh"' "$1"; }
+
+# Pad in frontend/ waar een URL naartoe wijst
+naar_pad() {
+  pad="$FRONTEND${1#"$ORIGIN"}"
+  case "$pad" in */) pad="${pad}index.html" ;; esac
+  printf '%s' "$pad"
+}
+
 for bestand in $(find "$FRONTEND" -name '*.html' | sort); do
   rel=${bestand#"$FRONTEND"}
   case "$bestand" in
     */index.html) url="$ORIGIN${rel%index.html}" ;;
     *)            url="" ;;
   esac
+
+  # Fonts komen van onze eigen origin. Een <link> naar Google zet een
+  # render-blocking verzoek op het kritieke pad en lekt het IP van de bezoeker.
+  if grep -q 'fonts\.googleapis\.com\|fonts\.gstatic\.com' "$bestand"; then
+    meld "$bestand haalt fonts bij Google — die staan in /assets/fonts/"
+  fi
+
+  # ── Redirect-stub: canonicaliseert naar het doel, hoort niet in de sitemap
+  if is_stub "$bestand"; then
+    doel=$(grep -o '<meta http-equiv="refresh" content="0; *url=[^"]*"' "$bestand" \
+           | sed 's|.*url=||;s|"$||')
+    if [ -z "$doel" ]; then
+      meld "$bestand heeft een meta-refresh die ik niet kan lezen (verwacht content=\"0; url=...\")"
+      continue
+    fi
+    case "$doel" in
+      "$ORIGIN"/*) ;;
+      *) meld "$bestand verwijst naar '$doel', dat moet een absolute $ORIGIN-URL zijn" ; continue ;;
+    esac
+
+    doelpad=$(naar_pad "$doel")
+    if [ ! -f "$doelpad" ]; then
+      meld "$bestand verwijst naar $doel maar $doelpad bestaat niet"
+    elif is_stub "$doelpad"; then
+      meld "$bestand verwijst naar $doel, dat zelf ook een redirect is — ketens verwateren het signaal"
+    fi
+
+    canonical=$(grep -o '<link rel="canonical" href="[^"]*"' "$bestand" | sed 's|.*href="||;s|"$||')
+    [ "$canonical" = "$doel" ] \
+      || meld "$bestand canonicaliseert naar '${canonical:-niets}', moet naar het redirect-doel $doel"
+
+    if [ -n "$url" ] && printf '%s\n' "$sitemap_urls" | grep -Fxq "$url"; then
+      meld "$bestand is een redirect maar staat in sitemap.xml"
+    fi
+    continue
+  fi
 
   if grep -q '<meta name="robots" content="[^"]*noindex' "$bestand"; then
     if printf '%s\n' "$sitemap_urls" | grep -Fxq "$ORIGIN$rel"; then
@@ -79,11 +125,14 @@ done
 dubbel=$(printf '%b' "$canonicals" | sort | uniq -d)
 [ -z "$dubbel" ] || meld "meerdere pagina's delen een canonical: $(echo "$dubbel" | tr '\n' ' ')"
 
-# Elke sitemap-URL moet een bestand hebben
+# Elke sitemap-URL moet een bestand hebben, en geen redirect zijn
 for url in $sitemap_urls; do
-  pad="$FRONTEND${url#"$ORIGIN"}"
-  case "$pad" in */) pad="${pad}index.html" ;; esac
-  [ -f "$pad" ] || meld "sitemap.xml noemt $url maar $pad bestaat niet"
+  pad=$(naar_pad "$url")
+  if [ ! -f "$pad" ]; then
+    meld "sitemap.xml noemt $url maar $pad bestaat niet"
+  elif is_stub "$pad"; then
+    meld "sitemap.xml noemt $url, maar dat is een redirect naar een andere pagina"
+  fi
 done
 
 if [ "$fouten" -gt 0 ]; then

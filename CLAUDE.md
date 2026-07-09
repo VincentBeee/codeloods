@@ -19,6 +19,7 @@ op pull requests), `deploy`, en `botcheck` (curl-check op de live URL's).
 
     ./scripts/seo-check.sh    # statisch, offline: canonicals, H1's, sitemap-dekking
     ./scripts/botcheck.sh     # live: haalt elke sitemap-URL op als bingbot
+    ./scripts/redirect.sh     # zet een redirect-stub op een oud pad
 
 `seo-check.sh` gaat ervan uit dat **elke `index.html` een rankbare pagina is** en
 eist per pagina precies één H1, een kopstructuur zonder overgeslagen niveaus, één
@@ -32,13 +33,50 @@ juiste canonical aan een crawler, zónder JavaScript. Op deze statische site kan
 dat nauwelijks stuk — de check staat er voor de dag dat een pagina wél door een
 framework wordt gerenderd.
 
-### Fonts en CLS
+### Fonts
 
-De `@font-face`-blokken bovenin `frontend/assets/css/loods.css` zijn metrisch
-gelijkgemaakte fallbacks. Zonder die blokken springt de H1 zichtbaar zodra de
-webfonts binnenkomen: Arial is in kapitalen ~51% breder dan Big Shoulders Display.
-Wissel je van font of gewicht, draai dan `python3 scripts/fontmetrics.py` en neem
-de nieuwe percentages over. Zelf getallen verzinnen maakt het erger, niet beter.
+De fonts staan in `frontend/assets/fonts/` en worden **niet** bij Google opgehaald.
+Twee redenen: een `<link>` naar `fonts.googleapis.com` is een render-blocking
+verzoek naar een derde partij op het kritieke pad, en het stuurt het IP van elke
+bezoeker naar Google nog vóór de cookiebanner iets heeft gevraagd — precies wat
+`consent.js` voor Analytics wél zorgvuldig vermijdt. `seo-check.sh` faalt als er
+weer een verwijzing naar Google Fonts in de HTML sluipt.
+
+Alleen het latin-subset staat in de repo. De pijltjes (`→`, `←`) vallen daarbuiten
+en komen uit een systeemfont; dat was met Google Fonts ook al zo. De licenties
+staan in `frontend/assets/fonts/LICENSE.txt` — OFL eist dat ze meereizen.
+
+De tweede set `@font-face`-blokken in `loods.css` zijn metrisch gelijkgemaakte
+fallbacks. Zonder die blokken springt de H1 zichtbaar zodra de webfonts binnenkomen:
+Arial is in kapitalen ~51% breder dan Big Shoulders Display. Wissel je van font of
+gewicht, draai dan `python3 scripts/fontmetrics.py` en neem de nieuwe percentages
+over. Zelf getallen verzinnen maakt het erger, niet beter.
+
+Let op bij het meten: Big Shoulders Display en Archivo zijn **variabele** fonts.
+Hun `hmtx`-tabel bevat de breedtes van de default-instantie, en die is voor Big
+Shoulders `wght=100` — een haarlijn. Wie het bestand naïef uitleest zit er 40%
+naast. `fontmetrics.py` instantieert daarom eerst op het gewicht dat de pagina
+echt gebruikt.
+
+## Slug wijzigen
+
+GitHub Pages serveert statische bestanden en kan **geen 301** sturen. Hernoem dus
+nooit zomaar een URL: de oude 404't dan en de ranking van die pagina is weg.
+
+    ./scripts/redirect.sh /blog/oude-slug/ /blog/nieuwe-slug/
+
+Dat zet op het oude pad een stub met een 0-seconden meta-refresh plus een canonical
+naar het doel. Google behandelt dat als een permanente redirect; Bing en de
+AI-crawlers zijn er minder stellig over. Bewust géén `noindex` op de stub — dat zou
+crawlers vertellen de pagina te laten vallen in plaats van het signaal door te geven.
+
+`seo-check.sh` herkent stubs aan de meta-refresh en eist dan dat de canonical naar
+het doel wijst, dat het doel bestaat, dat het doel niet zélf een redirect is
+(ketens verwateren het signaal) en dat de stub niet in de sitemap staat.
+
+Wil je een échte 301 voor alle crawlers, dan moet er een proxy voor de site:
+DNS naar Cloudflare, GitHub Pages als origin, en de redirects als Bulk Redirects.
+Dat is een infrastructuurkeuze, geen codewijziging.
 
 ## Git
 Commit messages **zonder** `Co-Authored-By`-trailer.

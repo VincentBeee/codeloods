@@ -13,36 +13,32 @@ Draaien na een fontwissel of een nieuw gewicht:
 
 Neem de percentages over in de @font-face-blokken bovenin frontend/assets/css/loods.css.
 
-De referentie is Arial, want dat is wat de fallback-stack in de praktijk oplevert
+Twee dingen die niet vanzelf goed gaan:
+
+  * Big Shoulders Display en Archivo zijn variabele fonts. Hun hmtx-tabel bevat de
+    breedtes van de default-instantie — voor Big Shoulders is dat wght=100, een
+    haarlijn. Wie het bestand naïef uitleest zit er 40% naast. Daarom instantiëren
+    we eerst op het gewicht dat de pagina echt gebruikt.
+  * De gemiddelde breedte meten we over de tekens die het font ook echt zet: de
+    koppen staan op text-transform:uppercase, de bodytekst is overwegend onderkast.
+
+Referentie is Arial, want dat is wat de fallback-stack in de praktijk oplevert
 (Arial op Windows, Helvetica op macOS — metrisch gelijk, Liberation Sans op Linux).
-De gemiddelde breedte meten we over de tekens die het font ook echt zet: de koppen
-staan op text-transform:uppercase, de bodytekst is overwegend onderkast.
 """
 
-import io
 import string
-import subprocess
 import sys
 
 from fontTools.ttLib import TTFont
+from fontTools.varLib import instancer
 
 ARIAL = "/System/Library/Fonts/Supplemental/Arial.ttf"
+FONTS = "frontend/assets/fonts"
 
-# Latin-subset woff2 van Google Fonts. Ververs deze URL's uit de CSS-respons van
-# fonts.googleapis.com als de fontversie opschuift (de /v24/ in het pad).
-FONTS = [
-    (
-        "Big Shoulders Display 800",
-        "https://fonts.gstatic.com/s/bigshouldersdisplay/v24/fC1MPZJEZG-e9gHhdI4-NBbfd2ys3SjJCx12wPgf9g-_3F0YdQ88FFkwSA.woff2",
-        string.ascii_uppercase,
-        "'Big Shoulders fallback'",
-    ),
-    (
-        "Archivo 400",
-        "https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTNDNZ9xdp.woff2",
-        string.ascii_lowercase,
-        "'Archivo fallback'",
-    ),
+# (bestand, gewicht zoals de pagina het gebruikt, tekens, naam van de fallback-familie)
+DOELEN = [
+    (f"{FONTS}/big-shoulders-display-latin.woff2", 800, string.ascii_uppercase, "'Big Shoulders fallback'"),
+    (f"{FONTS}/archivo-latin.woff2", 400, string.ascii_lowercase, "'Archivo fallback'"),
 ]
 
 
@@ -55,8 +51,12 @@ def gemiddelde_breedte(font, tekens):
     return sum(breedtes) / len(breedtes)
 
 
-def lees(pad_of_bytes, tekens):
-    font = TTFont(pad_of_bytes, fontNumber=0)
+def lees(pad, tekens, gewicht=None):
+    font = TTFont(pad, fontNumber=0)
+    if "fvar" in font:
+        if gewicht is None:
+            sys.exit(f"{pad} is variabel; geef een gewicht op")
+        font = instancer.instantiateVariableFont(font, {"wght": gewicht})
     upem = font["head"].unitsPerEm
     hhea = font["hhea"]
     return {
@@ -68,32 +68,28 @@ def lees(pad_of_bytes, tekens):
     }
 
 
-def haal(url):
-    """Via curl, niet urllib: de python.org-build op macOS heeft geen CA-bundel."""
-    klaar = subprocess.run(["curl", "-sSf", url], capture_output=True)
-    if klaar.returncode != 0:
-        sys.exit(f"ophalen mislukt: {url}\n{klaar.stderr.decode()}")
-    return klaar.stdout
-
-
 def main():
-    for naam, url, tekens, familie in FONTS:
-        web = lees(io.BytesIO(haal(url)), tekens)
+    for pad, gewicht, tekens, familie in DOELEN:
+        try:
+            web = lees(pad, tekens, gewicht)
+        except FileNotFoundError:
+            sys.exit(f"{pad} ontbreekt — draai dit script vanuit de repo-root")
         arial = lees(ARIAL, tekens)
 
         # size-adjust schaalt het fallback-font zo dat het even breed zet als het
         # webfont. De overrides zijn de metriek van het webfont, teruggerekend
         # naar het geschaalde em-kwadraat.
         size_adjust = web["breedte"] / arial["breedte"]
-        noemer = size_adjust
-        ascent = web["ascender"] / web["upem"] / noemer
-        descent = abs(web["descender"]) / web["upem"] / noemer
-        line_gap = web["lineGap"] / web["upem"] / noemer
+        ascent = web["ascender"] / web["upem"] / size_adjust
+        descent = abs(web["descender"]) / web["upem"] / size_adjust
+        line_gap = web["lineGap"] / web["upem"] / size_adjust
 
-        print(f"/* {naam} — fallback voor {familie} */")
-        print(f"@font-face{{")
+        naam = pad.rsplit("/", 1)[-1]
+        breder = (arial["breedte"] / web["breedte"] - 1) * 100
+        print(f"/* {naam} @ wght={gewicht} — Arial zet deze tekens {breder:.0f}% breder */")
+        print("@font-face{")
         print(f"  font-family:{familie};")
-        print(f"  src:local('Arial'),local('Helvetica'),local('Liberation Sans');")
+        print("  src:local('Arial'),local('Helvetica'),local('Liberation Sans');")
         print(
             f"  size-adjust:{size_adjust * 100:.2f}%;"
             f"ascent-override:{ascent * 100:.2f}%;"
