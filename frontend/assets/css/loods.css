@@ -198,3 +198,22 @@ a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--
   .hero-meta{gap:20px}
   .wizard-body{padding:26px 20px}
 }
+
+/* cookiebanner — weigeren moet net zo makkelijk zijn als accepteren,
+   dus beide knoppen zijn even groot en even opvallend */
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:100;background:var(--staal-diep);color:var(--beton-licht);transform:translateY(101%);transition:transform .35s cubic-bezier(.65,0,.35,1);will-change:transform}
+.consent[data-zichtbaar="true"]{transform:none}
+.consent::before{content:"";display:block;height:8px;background:repeating-linear-gradient(-45deg,var(--geel) 0 12px,var(--staal) 12px 24px)}
+.consent-inner{max-width:1120px;margin:0 auto;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.consent-label{font-size:12.5px;letter-spacing:.08em;color:var(--geel);margin-bottom:6px}
+.consent h2{font-size:26px;margin-bottom:8px}
+.consent p{font-size:14.5px;color:#B9C4CE;line-height:1.55;max-width:640px}
+.consent a{color:var(--geel);text-decoration:underline;text-underline-offset:2px}
+.consent-acties{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+.consent-btn{min-width:196px;text-align:center}
+.consent-weiger{background:var(--beton-licht);color:var(--staal);border-color:var(--beton-licht)}
+.consent-weiger:hover{background:var(--geel);border-color:var(--geel)}
+@media (max-width:760px){
+  .consent-inner{flex-direction:column;align-items:stretch;gap:18px;padding:20px}
+  .consent-acties .consent-btn{flex:1;min-width:0}
+}
