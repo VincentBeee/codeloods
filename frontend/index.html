@@ -30,7 +30,12 @@
       "description": "Codeloods bouwt apps, websites, webshops en software voor Nederlandse ondernemers, met SEO en AEO standaard ingebouwd. Vaste prijzen, beperkt aantal plekken, één maker.",
       "areaServed": {"@type": "Country", "name": "Nederland"},
       "priceRange": "€750 - €10.000",
-      "knowsAbout": ["webdevelopment", "webshops", "SEO", "AEO", "software op maat", "SaaS"]
+      "knowsAbout": ["webdevelopment", "webshops", "SEO", "AEO", "software op maat", "SaaS"],
+      "owns": [
+        {"@id": "https://klusboek.app/#app"},
+        {"@id": "https://verified.supply/#app"},
+        {"@id": "https://rentepermaand.nl/#app"}
+      ]
     },
     {
       "@type": "WebSite",
@@ -39,6 +44,39 @@
       "name": "Codeloods",
       "publisher": {"@id": "https://codeloods.nl/#organisatie"},
       "inLanguage": "nl-NL"
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://klusboek.app/#app",
+      "name": "Klusboek",
+      "url": "https://klusboek.app",
+      "description": "Administratie-app voor zelfstandige vakmensen: offertes, facturen, kilometers en bonnetjes.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "nl-NL",
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://verified.supply/#app",
+      "name": "Verified.supply",
+      "url": "https://verified.supply",
+      "description": "Duurzaamheidsrapportage (VSME/CSRD) voor het MKB, zonder externe consultants.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "nl-NL",
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://rentepermaand.nl/#app",
+      "name": "RentePerMaand.nl",
+      "url": "https://rentepermaand.nl",
+      "description": "Hypotheek- en rentecalculators die maandelijks duizenden Nederlanders organisch vinden.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "nl-NL",
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
     },
     {
       "@type": "OfferCatalog",
@@ -156,27 +194,29 @@
       <h2>We eten ons eigen brood</h2>
     </div>
     <p class="sectie-intro reveal">Geen portfolio van andermans logo's, maar producten die we zelf bouwen, runnen en laten groeien. Elke techniek die we voor jou inzetten, draait eerst hier.</p>
+    <!-- Vectodoc is nog niet live en blijft daarom een div: liever geen link dan
+         een link naar een domein dat niets serveert. -->
     <div class="producten reveal">
-      <div class="product">
+      <a class="product" href="https://klusboek.app" rel="noopener">
         <div class="naam">Klusboek</div>
         <p>Administratie-app voor zelfstandige vakmensen. Offertes, facturen, kilometers en bonnetjes — zonder gedoe.</p>
-        <span class="tag">SaaS · klusboek.app</span>
-      </div>
-      <div class="product">
+        <span class="tag">SaaS · klusboek.app <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://verified.supply" rel="noopener">
         <div class="naam">Verified.supply</div>
         <p>Duurzaamheidsrapportage (VSME/CSRD) voor het MKB, zonder consultants van €200 per uur.</p>
-        <span class="tag">SaaS · verified.supply</span>
-      </div>
+        <span class="tag">SaaS · verified.supply <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
       <div class="product">
         <div class="naam">Vectodoc</div>
         <p>Technische documentatie en illustraties, rechtstreeks vanuit de browser. CAD in, heldere handleiding uit.</p>
         <span class="tag">SaaS · in ontwikkeling</span>
       </div>
-      <div class="product">
+      <a class="product" href="https://rentepermaand.nl" rel="noopener">
         <div class="naam">RentePerMaand.nl</div>
         <p>Hypotheek- en rentecalculators die maandelijks duizenden Nederlanders organisch vinden. SEO in de praktijk.</p>
-        <span class="tag">Organisch verkeer · live</span>
-      </div>
+        <span class="tag">Organisch verkeer · rentepermaand.nl <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
     </div>
   </div>
 </section>
