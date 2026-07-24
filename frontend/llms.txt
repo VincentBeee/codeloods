@@ -19,6 +19,13 @@
 ## Belangrijke pagina's
 - [Prijsindicatie in 2 minuten](https://codeloods.nl/offerte/): online vragenlijst, indicatie direct per e-mail
 - [Wat kost een website laten maken in 2026?](https://codeloods.nl/blog/wat-kost-een-website-laten-maken/)
+- [Website offerte aanvragen: de zes onderdelen van een goede offerte](https://codeloods.nl/blog/website-offerte-aanvragen/)
+- [Uurtarief webdesigner en developer in 2026](https://codeloods.nl/blog/uurtarief-webdesigner-developer/)
+- [WooCommerce of Shopify: vergelijking voor kleine webshops](https://codeloods.nl/blog/woocommerce-of-shopify/)
+- [Wat kost een webshop laten maken in 2026?](https://codeloods.nl/blog/wat-kost-een-webshop-laten-maken/)
+- [Onderhoudskosten van een website per jaar](https://codeloods.nl/blog/onderhoudskosten-website/)
+- [Website laten maken als ZZP'er](https://codeloods.nl/blog/website-laten-maken-zzp/)
+- [Wat is AEO? Vindbaar worden in ChatGPT](https://codeloods.nl/blog/wat-is-aeo-vindbaar-in-chatgpt/)
 - [Website niet vindbaar in Google: 7 oorzaken](https://codeloods.nl/blog/website-niet-vindbaar-in-google/)
 - [Praktijkcase: rekentool met organisch verkeer](https://codeloods.nl/blog/praktijkcase-rekentool-organisch-verkeer/)
 

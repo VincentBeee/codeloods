@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onderhoudskosten van een website: waarom je €500–€2.000 per jaar betaalt (of bijna niets) | Codeloods</title>
+<meta name="description" content="Website-onderhoud kost bij WordPress €500 tot €2.000 per jaar. Uitleg waar dat geld heen gaat, wanneer een onderhoudscontract zinvol is, en waarom een statisch gebouwde site vrijwel onderhoudsvrij is.">
+<link rel="canonical" href="https://codeloods.nl/blog/onderhoudskosten-website/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Onderhoudskosten van een website: waarom je €500–€2.000 per jaar betaalt (of bijna niets)">
+<meta property="og:description" content="Waar die €500–€2.000 per jaar heen gaat — en de techniekkeuze die dat bedrag naar bijna nul brengt.">
+<meta property="og:url" content="https://codeloods.nl/blog/onderhoudskosten-website/">
+<meta property="og:locale" content="nl_NL">
+<link rel="preload" href="/assets/fonts/big-shoulders-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/loods.css">
+<!-- Cookietoestemming + Google Analytics (laadt pas na toestemming). Met defer,
+     want synchroon in de <head> stelde dit het ontdekken van de CSS uit. -->
+<script src="/assets/js/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Onderhoudskosten van een website: waarom je €500–€2.000 per jaar betaalt (of bijna niets)",
+      "description": "Website-onderhoud kost bij WordPress €500 tot €2.000 per jaar. Uitleg waar dat geld heen gaat, wanneer een onderhoudscontract zinvol is, en waarom een statisch gebouwde site vrijwel onderhoudsvrij is.",
+      "url": "https://codeloods.nl/blog/onderhoudskosten-website/",
+      "datePublished": "2026-07-16",
+      "dateModified": "2026-07-16",
+      "inLanguage": "nl-NL",
+      "author": {
+        "@type": "Organization",
+        "name": "Codeloods",
+        "url": "https://codeloods.nl"
+      },
+      "publisher": {
+        "@id": "https://codeloods.nl/#organisatie"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://codeloods.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://codeloods.nl/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Onderhoudskosten website",
+          "item": "https://codeloods.nl/blog/onderhoudskosten-website/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat kost website-onderhoud per maand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uitbesteed onderhoud van een WordPress-website kost in 2026 realistisch €40 tot €150 per maand, afhankelijk van de omvang van de site en wat er onder het contract valt (updates, beveiliging, backups, kleine aanpassingen)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan een website zonder onderhoudscontract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, op twee manieren: je doet de updates van een WordPress-site zelf bijhouden (reken op enkele uren per maand), of je kiest bij de bouw voor een statische site zonder plugins en database — die heeft vrijwel geen onderhoud nodig."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waarom is een statische website goedkoper in onderhoud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een statische website bestaat uit kant-en-klare bestanden zonder database, CMS of plugins. Er is daardoor niets dat wekelijks geüpdatet of beveiligd moet worden, en de hosting is goedkoop tot gratis. De vaste kosten blijven beperkt tot de domeinnaam."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav aria-label="Hoofdnavigatie">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">Code<span class="blok">loods</span></a>
+    <div class="nav-links">
+      <a href="/#diensten">Diensten</a>
+      <a href="/blog/">Blog</a>
+      <a href="/offerte/" class="btn btn-geel">Prijsindicatie in 2 min</a>
+    </div>
+  </div>
+</nav>
+
+<header class="artikel-hero">
+  <div class="container smal">
+    <p class="kruimel"><a href="/">Home</a> / <a href="/blog/" style="color:var(--geel)">Blog</a> / Prijzen</p>
+    <h1>Wat kost het onderhoud van een website per jaar?</h1>
+    <p class="meta">Gepubliceerd 16 juli 2026 · Leestijd 5 min · Codeloods</p>
+  </div>
+</header>
+
+<div class="tape" aria-hidden="true"></div>
+
+<article class="artikel">
+  <div class="container smal">
+
+    <div class="kort-antwoord">
+      <span class="label">Kort antwoord</span>
+      <p>Het onderhoud van een gemiddelde WordPress-website kost <strong>€500 tot €2.000 per jaar</strong>: updates van plugins en thema's, beveiliging, backups en kleine aanpassingen. Daarbovenop komt hosting (€50–€450 per jaar) en je domeinnaam (€10–€20). Een statisch gebouwde website heeft die onderhoudslast vrijwel niet — de vaste kosten blijven dan beperkt tot het domein en eventueel goedkope hosting.</p>
+    </div>
+
+    <p>De bouwkosten van een website krijg je netjes in een offerte. De kosten daarná — elk jaar opnieuw — meestal niet. Dit artikel legt uit waar dat geld heen gaat, wanneer een onderhoudscontract terecht is, en waarom de techniekkeuze bij de bouw je jaarlasten met een factor tien kan schelen.</p>
+
+    <h2>Waar het onderhoudsgeld heen gaat</h2>
+    <p>Bij een klassieke WordPress-site (verreweg de meest gebouwde soort) bestaat onderhoud uit vier posten:</p>
+    <ul>
+      <li><strong>Updates.</strong> WordPress zelf, het thema en elke plugin krijgen doorlopend updates. Niet bijhouden is geen optie: verouderde plugins zijn de nummer één-oorzaak van gehackte sites.</li>
+      <li><strong>Beveiliging en monitoring.</strong> Controleren of de site niet is aangetast, firewall- en spamplugins beheren.</li>
+      <li><strong>Backups.</strong> Regelmatige kopieën, en — belangrijker — af en toe testen of terugzetten écht werkt.</li>
+      <li><strong>Kleine aanpassingen.</strong> Een nieuw teamlid erbij, gewijzigde openingstijden, een foto vervangen.</li>
+    </ul>
+    <p>Besteed je dit uit, dan betaal je in 2026 realistisch €40 tot €150 per maand, oftewel €500 tot bijna €2.000 per jaar. Dat is geen oplichterij — het is echt werk — maar het is wél werk dat voortkomt uit een techniekkeuze.</p>
+
+    <h2>De keuze die bijna niemand je voorlegt</h2>
+    <p>Een website die niet dagelijks door een redactie wordt bijgewerkt — en dat geldt voor de meeste bedrijfssites — kan ook <em>statisch</em> gebouwd worden: kant-en-klare pagina's zonder database, zonder CMS, zonder plugins. Zo'n site heeft drie eigenschappen die direct in je portemonnee voelbaar zijn:</p>
+    <ul>
+      <li><strong>Er valt niets te updaten.</strong> Geen plugins, dus geen veiligheidslek dat elke week gedicht moet worden. De onderhoudspost verdwijnt vrijwel volledig.</li>
+      <li><strong>Hosting is goedkoop tot gratis.</strong> Statische bestanden serveren kost bijna niets; de vaste lasten blijven beperkt tot je domeinnaam.</li>
+      <li><strong>Hij is sneller.</strong> Geen database die bevraagd wordt betekent kortere laadtijden — goed voor bezoekers én voor je <a href="/blog/website-niet-vindbaar-in-google/">vindbaarheid</a>.</li>
+    </ul>
+    <p>De eerlijke keerzijde: teksten wijzig je niet in een beheeromgeving maar via je bouwer (of, als je dat wilt, met een eenvoudige beheerlaag erbovenop). Voor sites die een paar keer per jaar wijzigen is dat geen nadeel maar een besparing; voor een nieuwssite of grote webshop ligt dat anders.</p>
+
+    <h2>Wanneer een onderhoudscontract wél verstandig is</h2>
+    <p>Heb je een WordPress-site of webshop met klantgegevens, bestellingen of een ledengedeelte: neem het contract, of reken op eigen uren. De combinatie van persoonsgegevens en verouderde software is het scenario waar je 's nachts wakker van wilt liggen. Kies je bewust voor WordPress vanwege het CMS-gemak, beschouw het onderhoud dan als vaste bedrijfskosten — zoals de verzekering van je bus.</p>
+
+    <h2>De rekensom over drie jaar</h2>
+    <table>
+      <thead><tr><th>Kostenpost</th><th>WordPress-site</th><th>Statische site</th></tr></thead>
+      <tbody>
+        <tr><td>Bouw (eenmalig)</td><td>€1.500 – €3.000</td><td>€1.500 – €3.000</td></tr>
+        <tr><td>Hosting (3 jaar)</td><td>€150 – €1.350</td><td>€0 – €150</td></tr>
+        <tr><td>Onderhoud (3 jaar)</td><td>€1.500 – €6.000</td><td>± €0</td></tr>
+        <tr><td><strong>Totaal 3 jaar</strong></td><td><strong>€3.150 – €10.350</strong></td><td><strong>€1.500 – €3.150</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Dezelfde bouwprijs, tot drie keer lagere totaalkosten. Vraag daarom bij elke offerte niet alleen "wat kost de site?", maar "wat kost de site over drie jaar?" — het antwoord zegt meer over je bouwer dan de bouwprijs zelf.</p>
+
+    <div class="artikel-cta">
+      <div>
+        <strong>Site zonder maandlasten?</strong>
+        <p>Wij bouwen standaard op een statische basis: vaste bouwprijs, daarna vrijwel geen vaste kosten.</p>
+      </div>
+      <a href="/offerte/" class="btn btn-geel">Vraag een indicatie aan</a>
+    </div>
+
+    <h2>Veelgestelde vragen</h2>
+    <h3>Wat kost website-onderhoud per maand?</h3>
+    <p>Uitbesteed onderhoud van een WordPress-website kost in 2026 realistisch €40 tot €150 per maand, afhankelijk van de omvang van de site en wat er onder het contract valt (updates, beveiliging, backups, kleine aanpassingen).</p>
+    <h3>Kan een website zonder onderhoudscontract?</h3>
+    <p>Ja, op twee manieren: je doet de updates van een WordPress-site zelf bijhouden (reken op enkele uren per maand), of je kiest bij de bouw voor een statische site zonder plugins en database — die heeft vrijwel geen onderhoud nodig.</p>
+    <h3>Waarom is een statische website goedkoper in onderhoud?</h3>
+    <p>Een statische website bestaat uit kant-en-klare bestanden zonder database, CMS of plugins. Er is daardoor niets dat wekelijks geüpdatet of beveiligd moet worden, en de hosting is goedkoop tot gratis. De vaste kosten blijven beperkt tot de domeinnaam.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span class="mono">CODELOODS · KVK 00000000 · NEDERLAND</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/offerte/">Prijsindicatie</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
