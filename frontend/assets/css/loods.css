@@ -120,7 +120,10 @@ h2{font-family:'Big Shoulders Display','Big Shoulders fallback',sans-serif;font-
 .eigen{background:var(--staal);color:var(--beton-licht)}
 .eigen .kop-label{color:var(--geel);border-color:var(--geel)}
 .eigen .sectie-intro{color:var(--staal-licht)}
-.producten{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#33454F;border:1px solid #33454F}
+/* De 1px-gaps zijn de achtergrond van het raster, dus een half gevulde laatste rij
+   valt op als een gat in de tegelvloer. Het aantal kolommen moet daarom deler zijn
+   van het aantal producten: nu 9 stuks, dus 3 kolommen (en 1 onder 900px). */
+.producten{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#33454F;border:1px solid #33454F}
 .product{background:var(--staal);padding:26px 26px 24px;transition:background .15s}
 .product:hover{background:#22323F}
 .product .naam{font-family:'Big Shoulders Display','Big Shoulders fallback',sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:.01em;display:flex;align-items:center;gap:10px}

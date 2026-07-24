@@ -34,7 +34,21 @@
       "owns": [
         {"@id": "https://klusboek.app/#app"},
         {"@id": "https://verified.supply/#app"},
-        {"@id": "https://rentepermaand.nl/#app"}
+        {"@id": "https://rentepermaand.nl/#app"},
+        {"@id": "https://maandlastcheck.nl/#app"},
+        {"@id": "https://eyrix.app/#app"},
+        {"@id": "https://crucial.supply/#app"},
+        {"@id": "https://agentgrading.ai/#app"}
+      ],
+      "subOrganization": [
+        {"@id": "https://rentepermaand.nl/#organisatie"},
+        {"@id": "https://maandlastcheck.nl/#organisatie"},
+        {"@id": "https://verified.supply/#organisatie"},
+        {"@id": "https://klusboek.app/#organisatie"},
+        {"@id": "https://eyrix.app/#organisatie"},
+        {"@id": "https://crucial.supply/#organisatie"},
+        {"@id": "https://agentgrading.ai/#organisatie"},
+        {"@id": "https://liefpapier.nl/#organisatie"}
       ]
     },
     {
@@ -46,6 +60,64 @@
       "inLanguage": "nl-NL"
     },
     {
+      "@type": "Organization",
+      "@id": "https://rentepermaand.nl/#organisatie",
+      "name": "RentePerMaand.nl",
+      "url": "https://rentepermaand.nl",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://maandlastcheck.nl/#organisatie",
+      "name": "MaandlastCheck.nl",
+      "url": "https://maandlastcheck.nl",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://verified.supply/#organisatie",
+      "name": "Verified.supply",
+      "url": "https://verified.supply",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://klusboek.app/#organisatie",
+      "name": "Klusboek",
+      "url": "https://klusboek.app",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://eyrix.app/#organisatie",
+      "name": "Eyrix",
+      "url": "https://eyrix.app",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://crucial.supply/#organisatie",
+      "name": "Crucial",
+      "url": "https://crucial.supply",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://agentgrading.ai/#organisatie",
+      "name": "AgentGrading.ai",
+      "url": "https://agentgrading.ai",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": "OnlineStore",
+      "@id": "https://liefpapier.nl/#organisatie",
+      "name": "Atelier Lief Papier",
+      "url": "https://liefpapier.nl",
+      "description": "Webshop met handgemaakte, gepersonaliseerde kaarten en papieren cadeaus op handgeschept papier.",
+      "inLanguage": "nl-NL",
+      "parentOrganization": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
       "@type": ["WebApplication", "Product"],
       "@id": "https://klusboek.app/#app",
       "name": "Klusboek",
@@ -54,6 +126,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "inLanguage": "nl-NL",
+      "brand": {"@id": "https://klusboek.app/#organisatie"},
       "publisher": {"@id": "https://codeloods.nl/#organisatie"}
     },
     {
@@ -65,6 +138,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "inLanguage": "nl-NL",
+      "brand": {"@id": "https://verified.supply/#organisatie"},
       "publisher": {"@id": "https://codeloods.nl/#organisatie"}
     },
     {
@@ -76,6 +150,55 @@
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
       "inLanguage": "nl-NL",
+      "brand": {"@id": "https://rentepermaand.nl/#organisatie"},
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://maandlastcheck.nl/#app",
+      "name": "MaandlastCheck.nl",
+      "url": "https://maandlastcheck.nl",
+      "description": "Nederlandse rekentools voor netto salaris, maximale hypotheek, studieschuld en huren versus kopen. Zonder registratie.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "nl-NL",
+      "brand": {"@id": "https://maandlastcheck.nl/#organisatie"},
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://eyrix.app/#app",
+      "name": "Eyrix",
+      "url": "https://eyrix.app",
+      "description": "Constraint-based planningssoftware: rekent eerst uit welke combinaties van middelen, tijd en eisen haalbaar zijn en stelt daarna pas een planning voor.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "brand": {"@id": "https://eyrix.app/#organisatie"},
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://crucial.supply/#app",
+      "name": "Crucial",
+      "url": "https://crucial.supply",
+      "description": "Software waarmee handelsvergunninghouders auditklare Shortage Prevention and Mitigation Plans opstellen en meldingstermijnen uit de EU Critical Medicines Act bewaken.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "brand": {"@id": "https://crucial.supply/#organisatie"},
+      "publisher": {"@id": "https://codeloods.nl/#organisatie"}
+    },
+    {
+      "@type": ["WebApplication", "Product"],
+      "@id": "https://agentgrading.ai/#app",
+      "name": "AgentGrading.ai",
+      "url": "https://agentgrading.ai",
+      "description": "Verificatie-instantie voor AI-evaluaties: certificeert dat een eval reproduceerbaar en niet te bespelen is voordat die iets beoordeelt.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "brand": {"@id": "https://agentgrading.ai/#organisatie"},
       "publisher": {"@id": "https://codeloods.nl/#organisatie"}
     },
     {
@@ -216,6 +339,31 @@
         <div class="naam">RentePerMaand.nl</div>
         <p>Hypotheek- en rentecalculators die maandelijks duizenden Nederlanders organisch vinden. SEO in de praktijk.</p>
         <span class="tag">Organisch verkeer · rentepermaand.nl <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://maandlastcheck.nl" rel="noopener">
+        <div class="naam">MaandlastCheck.nl</div>
+        <p>Netto salaris, maximale hypotheek en studieschuld doorrekenen. Zonder registratie, zonder adviesgesprek.</p>
+        <span class="tag">Organisch verkeer · maandlastcheck.nl <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://eyrix.app" rel="noopener">
+        <div class="naam">Eyrix</div>
+        <p>Planning als rekenprobleem: eerst uitrekenen welke combinaties van mensen, middelen en tijd kúnnen, dan pas plannen.</p>
+        <span class="tag">SaaS · eyrix.app <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://crucial.supply" rel="noopener">
+        <div class="naam">Crucial</div>
+        <p>Tekortenpreventieplannen voor de EU Critical Medicines Act. Auditklaar, ruim vóór de deadline.</p>
+        <span class="tag">SaaS · crucial.supply <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://agentgrading.ai" rel="noopener">
+        <div class="naam">AgentGrading.ai</div>
+        <p>Keurt AI-evaluaties vóórdat ze iets beoordelen: reproduceerbaar, niet te bespelen, herleidbaar naar een standaard.</p>
+        <span class="tag">SaaS · agentgrading.ai <span class="pijl" aria-hidden="true">→</span></span>
+      </a>
+      <a class="product" href="https://liefpapier.nl" rel="noopener">
+        <div class="naam">Atelier Lief Papier</div>
+        <p>Webshop voor handgemaakte kaarten op handgeschept papier. Onze eigen proeftuin voor productfoto's en checkout.</p>
+        <span class="tag">Webshop · liefpapier.nl <span class="pijl" aria-hidden="true">→</span></span>
       </a>
     </div>
   </div>
